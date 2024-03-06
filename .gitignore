@@ -1,0 +1,38 @@
+# Arquivos e diretórios específicos do Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+checkstyle*\.xml
+
+# Arquivos de compilação
+*.class
+
+# Arquivos de configuração do Eclipse
+.settings/
+.classpath
+.project
+
+# Arquivos de configuração do IntelliJ IDEA
+.idea/
+.idea
+# Arquivos de log
+*.log
+
+# Diretório de dependências do Maven
+dependency-reduced-pom.xml
+
+# Arquivos de configuração específicos do sistema operacional
+*.swp
+*~
+.DS_Store
+
+# Arquivos de cache
+target/
+.cache/
+.cproject
+.csettings
+*.launch
+*.swp
+*.gitignore
