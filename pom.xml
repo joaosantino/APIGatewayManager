@@ -7,6 +7,13 @@
     <groupId>com.santino</groupId>
     <artifactId>APIGatewayManager</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>bom</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+    </dependencies>
 
     <profiles>
         <profile>
@@ -19,7 +26,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <aws.java.sdk.version>2.2.0</aws.java.sdk.version>
+        <aws.java.sdk.version>2.25.0</aws.java.sdk.version>
     </properties>
 
     <dependencyManagement>
@@ -28,23 +35,6 @@
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
                 <version>${aws.java.sdk.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>software.amazon.awssdk</groupId>
-                <artifactId>s3</artifactId>
-                <exclusions>
-                    <exclusion>
-                        <groupId>software.amazon.awssdk</groupId>
-                        <artifactId>netty-nio-client</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>software.amazon.awssdk</groupId>
-                        <artifactId>apache-client</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
             <dependency>
@@ -62,8 +52,6 @@
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>aws-sdk-java-apigateway</artifactId>
                 <version>${aws.java.sdk.version}</version>
-                <type>pom</type>
-                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

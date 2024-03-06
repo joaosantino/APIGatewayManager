@@ -29,10 +29,8 @@ dependency-reduced-pom.xml
 .DS_Store
 
 # Arquivos de cache
-target/
 .cache/
 .cproject
 .csettings
 *.launch
-*.swp
 *.gitignore
