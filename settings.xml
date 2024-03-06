@@ -1,0 +1,20 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <profiles>
+        <profile>
+            <id>aws-sdk</id>
+            <repositories>
+                <repository>
+                    <id>aws-java-sdk</id>
+                    <url>https://mvnrepository.com/artifact/com.amazonaws</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>aws-sdk</activeProfile>
+    </activeProfiles>
+</settings>
