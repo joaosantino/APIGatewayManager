@@ -1,0 +1,61 @@
+import software.amazon.awssdk.services.apigateway.ApiGatewayClient;
+import software.amazon.awssdk.services.apigateway.model.UpdateIntegrationResponseRequest;
+import software.amazon.awssdk.services.apigateway.model.UpdateIntegrationResponseResponse;
+
+public class APIGatewayIntegrationUpdater {
+
+    // Método para modificar a integração e retornar um Boolean em caso de sucesso ou falha
+    public Boolean updateIntegrationResponse(String apiKey, String region) {
+        // Configurar cliente do API Gateway
+        ApiGatewayClient apiGatewayClient = ApiGatewayClient.builder()
+                .apiKey(apiKey)
+                .region(region)
+                .build();
+
+        // Definir o ID da integração e o ID da resposta de integração
+        String integrationId = "seu_integration_id";
+        String integrationResponseId = "seu_integration_response_id";
+
+        // Definir o corpo da resposta de integração
+        String responseBody = "{\"message\": \"erro de timeout\"}";
+
+        // Configurar o request para atualizar a resposta de integração
+        UpdateIntegrationResponseRequest request = UpdateIntegrationResponseRequest.builder()
+                .restApiId("seu_rest_api_id")
+                .resourceId("seu_resource_id")
+                .httpMethod("seu_http_method")
+                .statusCode("500")
+                .selectionPattern("seu_selection_pattern")
+                .responseParameters(null) // Se não houver parâmetros de resposta a serem atualizados
+                .responseTemplates(null) // Se não houver modelos de resposta a serem atualizados
+                .responseType("seu_response_type")
+                .contentHandling(null) // Se não houver manipulação de conteúdo
+                .build();
+
+        try {
+            // Executar a solicitação para atualizar a resposta de integração
+            UpdateIntegrationResponseResponse response = apiGatewayClient.updateIntegrationResponse(request);
+            
+            // Verificar se a resposta foi bem-sucedida (status code 200)
+            if (response.sdkHttpResponse().isSuccessful()) {
+                return true; // Sucesso
+            } else {
+                return false; // Falha
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; // Falha
+        }
+    }
+
+    public static void main(String[] args) {
+        // Exemplo de como usar o método updateIntegrationResponse
+        APIGatewayIntegrationUpdater updater = new APIGatewayIntegrationUpdater();
+        Boolean updateSuccessful = updater.updateIntegrationResponse("seu_api_key", "sua_região");
+        if (updateSuccessful) {
+            System.out.println("Atualização da integração bem-sucedida!");
+        } else {
+            System.out.println("Falha ao atualizar a integração.");
+        }
+    }
+}
